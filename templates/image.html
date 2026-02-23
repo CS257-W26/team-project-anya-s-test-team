@@ -1,1 +1,7 @@
-<img src = {{image}}>
+<head> <link rel="stylesheet" href="{{url_for('static',filename='example.css')}}">
+</head>
+
+<img src="{{image}}" alt="Detailed data: Sales in Jan: 100, Feb: 150, March: 200." />
+<div class="sr-only">
+  Detailed data: Sales in Jan: 100, Feb: 150, March: 200.
+</div>
