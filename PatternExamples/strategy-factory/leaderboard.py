@@ -1,0 +1,28 @@
+
+from factory import RankingStrategyFactory
+class LeaderBoard:
+    def __init__(self, strategy):
+        self._strategy = strategy
+        #self.ds = DataSource()
+
+    def set_strategy(self, strategy):
+        self._strategy = strategy
+
+    def fetch_leaders(self):
+        formula = self._strategy.get_formula()
+        print("Going to ask DataSource for", formula)
+        #return ds.get_top_ten(formula)
+        
+
+# The Web Route is now much cleaner!
+def get_leaderboard(criteria):
+    try:
+        strategy = RankingStrategyFactory.get_strategy(criteria)
+        leaderboard = LeaderBoard(strategy)
+        return leaderboard.fetch_leaders()
+    except ValueError:
+        return "Leaderboard type not found", 404
+
+if __name__ == "__main__":
+    # Example usage of get_leaderboard function
+    print(get_leaderboard("tank"))
