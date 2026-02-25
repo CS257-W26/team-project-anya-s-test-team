@@ -1,5 +1,5 @@
 
-from factory import RankingStrategyFactory
+import factory
 class LeaderBoard:
     def __init__(self, strategy):
         self._strategy = strategy
@@ -14,10 +14,10 @@ class LeaderBoard:
         #return ds.get_top_ten(formula)
         
 
-# The Web Route is now much cleaner!
+# stand in for flask route handler
 def get_leaderboard(criteria):
     try:
-        strategy = RankingStrategyFactory.get_strategy(criteria)
+        strategy = factory.get_strategy(criteria)
         leaderboard = LeaderBoard(strategy)
         return leaderboard.fetch_leaders()
     except ValueError:
