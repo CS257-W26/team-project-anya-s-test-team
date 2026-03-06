@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<link rel="stylesheet" href="{{url_for('static',filename='example.css')}}">
+
+<script src="https://d3js.org/d3.v4.js"></script>
+</head>
+
+<body>
+<h2>D3.js Scatter-Plot</h2>
+
+<svg id="myPlot" style="width:500px;height:500px"></svg>
+
+<script src="{{url_for('static',filename='test.js')}}" charset="utf-8">
+</script>
+
+<noscript>
+  <p>Sorry, your browser does not support JavaScript. Please enable it to see the plot. Here is 
+the data in text form instead: 
+  </p>
+</noscript>
+
+</body>
+</html>
